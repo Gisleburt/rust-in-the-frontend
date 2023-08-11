@@ -15,8 +15,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             }
         }
 
-        script (src="https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/js/impress.js")
-        script { "window.impress || document.write(`<script src='https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/js/impress.js'>\x3C/script>`);" }
+        script (src="/js/impress.js")
         script { "impress().init()" }
     }
 }
@@ -25,7 +24,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
 fn head(cx: Scope) -> View<SsrNode> {
     view! { cx,
         title { "Rust in the FrontEnd" }
-        link (rel = "stylesheet", href = "https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/css/impress-common.css")
+        link (rel = "stylesheet", href = "/css/impress-common.css")
     }
 }
 
