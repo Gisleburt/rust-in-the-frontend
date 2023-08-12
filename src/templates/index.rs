@@ -1,16 +1,17 @@
 use perseus::prelude::*;
 use sycamore::prelude::*;
+use crate::components::step::Step;
 
 fn index_page<G: Html>(cx: Scope) -> View<G> {
     view! { cx,
         // Don't worry, there are much better ways of styling in Perseus!
         div(id = "impress", data-width="1024", data-height="768", data-max-scale="1", data-min-scale="0") {
-            div (id = "intro", class = "step") {
+            Step (name = "intro") {
                 h1 { "Rust in the FrontEnd" }
                 h2 { "A breif guide to making websites with Rust in 2023" }
             }
 
-            div (id = "test", class = "step", data-x = "1000", data-rotate = "90") {
+            Step (name = "test", x = "1000", rotate = 90) {
                 "This is slide 2"
             }
         }

@@ -1,3 +1,4 @@
+mod components;
 mod templates;
 mod error_views;
 
