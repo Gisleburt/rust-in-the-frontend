@@ -1,6 +1,6 @@
 use perseus::prelude::*;
 use sycamore::prelude::*;
-use crate::components::step::Step;
+use crate::components::{step::Step, impress::Impress};
 
 fn index_page<G: Html>(cx: Scope) -> View<G> {
     view! { cx,
@@ -8,16 +8,27 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
         div(id = "impress", data-width="1024", data-height="768", data-max-scale="1", data-min-scale="0") {
             Step (name = "intro") {
                 h1 { "Rust in the FrontEnd" }
-                h2 { "A breif guide to making websites with Rust in 2023" }
+                h2 { "A brief guide to making websites with Rust in 2023" }
             }
 
-            Step (name = "test", x = "1000", rotate = 90) {
-                "This is slide 2"
+            Step (name = "why", x = 1000, rotate = 90) {
+                h2 { "Why would you want to do this" }
+            }
+
+            Step (name = "why-speed-rust", x = 500, rotate = 90) {
+                h2 { "Rust is fast" }
+                p { "Rust is a language known for its speed" }
+                img (src="/.perseus/static/images/speed-elapsed-seconds.png")
+            }
+
+            Step (name = "why-speed-wasm", x = 500, y = 500, rotate = 180) {
+                h2 { "WASM is fast" }
+                p { "WASM is known to provide a secure, high performance runtime for the web" }
+                img (src="/.perseus/static/images/speed-wasm.png")
             }
         }
 
-        script (src="/.perseus/static/js/impress.js")
-        script { "impress().init()" }
+        Impress()
     }
 }
 

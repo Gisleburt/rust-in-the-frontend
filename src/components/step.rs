@@ -6,9 +6,9 @@ pub struct StepProps<'a, G: Html> {
     #[builder(default)]
     name: &'a str,
     #[builder(default)]
-    x: &'a str,
+    x: i32,
     #[builder(default)]
-    y: &'a str,
+    y: i32,
     #[builder(default)]
     rotate: i32,
 }
@@ -16,9 +16,8 @@ pub struct StepProps<'a, G: Html> {
 #[component]
 pub fn Step<'a, G: Html>(cx: Scope<'a>, props: StepProps<'a, G>) -> View<G> {
     let children = props.children.call(cx);
-    let class_name = format!("step {}", props.name);
     view! { cx,
-        div(class = class_name, data-x = props.x, data-y = props.y, data-rotate = props.rotate) {
+        div(class = "step", id = props.name, data-x = props.x, data-y = props.y, data-rotate = props.rotate) {
             (children)
         }
     }
