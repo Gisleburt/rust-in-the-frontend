@@ -4,8 +4,7 @@ use crate::components::{step::Step, impress::Impress};
 
 fn index_page<G: Html>(cx: Scope) -> View<G> {
     view! { cx,
-        // Don't worry, there are much better ways of styling in Perseus!
-        div(id = "impress", data-width="1024", data-height="768", data-max-scale="1", data-min-scale="0") {
+        Impress(enabled = true) {
             Step (name = "intro") {
                 h1 { "Rust in the FrontEnd" }
                 h2 { "A brief guide to making websites with Rust in 2023" }
@@ -27,8 +26,6 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 img (src="/.perseus/static/images/speed-wasm.png")
             }
         }
-
-        Impress()
     }
 }
 
