@@ -2,20 +2,24 @@ use yew::prelude::*;
 
 #[function_component]
 fn App() -> Html {
+    html! {
+        <>
+            <h1>{"Calculator Example"}</h1>
+            <Calculator />
+        </>
+    }
+}
+
+#[function_component]
+fn Calculator() -> Html {
     let counter = use_state(|| 0);
     let increment = {
         let counter = counter.clone();
-        move |_| {
-            let value = *counter + 1;
-            counter.set(value);
-        }
+        move |_| { counter.set(*counter + 1); }
     };
     let decrement = {
         let counter = counter.clone();
-        move |_| {
-            let value = *counter - 1;
-            counter.set(value);
-        }
+        move |_| { counter.set(*counter - 1); }
     };
 
     html! {

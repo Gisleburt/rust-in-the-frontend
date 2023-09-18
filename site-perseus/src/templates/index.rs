@@ -79,6 +79,51 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 h3 { "Yew" }
             }
 
+            Step (name = "options-yew-demo", x = 1000, y = 2000) {
+                h3 { "Counter Demo" }
+                pre {
+                    code {
+                        "#[function_component]\n"
+                        "fn Calculator() -> Html {\n"
+                        "    let counter = use_state(|| 0);\n"
+                        "    let increment = {\n"
+                        "        let counter = counter.clone();\n"
+                        "        move |_| { counter.set(*counter + 1); }\n"
+                        "    };\n"
+                        "    let decrement = {\n"
+                        "        let counter = counter.clone();\n"
+                        "        move |_| { counter.set(*counter - 1); }\n"
+                        "    };\n"
+                        "\n"
+                        "    html! {\n"
+                        "        <div>\n"
+                        "            <p>{ *counter }</p>\n"
+                        "            <button onclick={increment}>{ \"+1\" }</button>\n"
+                        "            <button onclick={decrement}>{ \"-1\" }</button>\n"
+                        "        </div>\n"
+                        "    }\n"
+                        "}\n"
+                    }
+                }
+            }
+
+            Step (name = "options-yew-demo", x = 1000, y = 2000) {
+                h3 { "Counter Demo" }
+                pre {
+                    code {
+                        "#[function_component]\n"
+                        "fn App() -> Html {\n"
+                        "    html! {\n"
+                        "        <>\n"
+                        "            <h1>{\"Calculator Example\"}</h1>\n"
+                        "            <Calculator />\n"
+                        "        </>\n"
+                        "    }\n"
+                        "}\n"
+                    }
+                }
+            }
+
             Step (name = "options-perseus", x = 0, y = 3000) {
                 h3 { "Sycamore / Perseus" }
             }
