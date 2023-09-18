@@ -13,12 +13,13 @@ window.__PERSEUS_GLOBAL_STATE = `null`;</script><meta itemprop=__perseus_head_bo
 window.__PERSEUS_INITIAL_STATE = `null`;
 window.__PERSEUS_INITIAL_WIDGET_STATES = `{}`;
 window.__PERSEUS_TRANSLATIONS = ``;</script><meta itemprop=__perseus_head_end><script>//</script><body><div id=root><div data-hk=1.0 id=impress data-transition-duration=1000 data-width=1024 data-height=768 data-max-scale=3 data-min-scale=0 data-perspective=1000><div data-hk=2.2 class=step id=intro data-x=0 data-y=0 data-rotate=0><h1 data-hk=2.0>Rust in the FrontEnd</h1><h2 data-hk=2.1>A brief guide to making websites with Rust in 2023</h2></div><div data-hk=3.1 class=step id=why data-x=1000 data-y=0 data-rotate=0><h2 data-hk=3.0>Why would you want to do this</h2></div><div data-hk=4.3 class=step id=why-rust-speed data-x=2000 data-y=0 data-rotate=0><h3 data-hk=4.0>Rust is fast</h3><p data-hk=4.1>Rust is a language known for its speed</p><img data-hk=4.2 src=/.perseus/static/images/speed-elapsed-seconds.png></div><div data-hk=5.7 class=step id=why-rust-wasm data-x=3000 data-y=0 data-rotate=0><h3 data-hk=5.0>Rust WASM tooling and documentation is very mature</h3><ul data-hk=5.1><li data-hk=5.2>Tier 2: rustup add target wasm32-unknown-unknown<li data-hk=5.3>Living book, tutorials, tools: <a data-hk=5.4 href=https://rustwasm.github.io/>https://rustwasm.github.io/</a><li data-hk=5.5>Write once, run anywhere: <a data-hk=5.6 href=https://tauri.app/>https://tauri.app/</a></ul></div><div data-hk=6.3 class=step id=why-speed-wasm data-x=4000 data-y=0 data-rotate=0><h3 data-hk=6.0>WASM is fast</h3><p data-hk=6.1>WASM is known to provide a secure, high performance runtime for the web</p><img data-hk=6.2 src=/.perseus/static/images/speed-wasm.png></div><div data-hk=7.5 class=step id=why-rust-correctness data-x=5000 data-y=0 data-rotate=0><h3 data-hk=7.0>Rust is robust, reliable and 'correct'</h3><pre data-hk=7.1><code data-hk=7.2>async function getUser(email: string): Promise&LTResult&LTError, User>> { 
-  const user = await (await fetch(`https://example.com/${email}`)).json()
+  const response = await fetch(`https://example.com/${email}`)));
+  const user = await response.json()
   return user.email === email
     ? Result.ok(user)
     : Result.error(new Error('Incorrect user returned');
 }</code></pre><pre data-hk=7.3><code data-hk=7.4>async fn getUser(email: &str) -> Result&LTUser, GetUserError> { 
-    let user: User = reqwest::get(format!("https://example.com/{email}"))
+    let user: User = get(format!("https://example.com/{email}"))
         .await?
         .json()
         .await?;

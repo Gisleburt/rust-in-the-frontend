@@ -55,7 +55,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                     }
                 }
                 pre {
-                    code {Mad
+                    code {
                         "async fn getUser(email: &str) -> Result<User, GetUserError> { \n"
                         "    let user: User = get(format!(\"https://example.com/{email}\"))\n"
                         "        .await?\n"
