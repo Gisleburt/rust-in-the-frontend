@@ -112,7 +112,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-yew-demo-app", x = 2000, y = 2000) {
+            Step (name = "options-yew-demo-counter-usage", x = 2000, y = 2000) {
                 h3 { "Yew Counter Usage" }
                 pre {
                     code {
@@ -170,7 +170,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-perseus-demo-app", x = 3000, y = 3000) {
+            Step (name = "options-perseus-demo-counter-usage", x = 3000, y = 3000) {
                 h3 { "Perseus Counter Usage" }
                 pre {
                     code {
@@ -191,7 +191,38 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 ul {
                     li { "Similar 'reactivity' approach to Sycamore" }
                     li { "Looks a lot like Sycamore too'" }
-                    li { "Supports CSR, SSR, and SSG" }
+                    li { "Supports CSR, SSR, SSG, Desktop, and more!" }
+                }
+            }
+
+            Step (name = "options-dioxus-demo-counter", x = 1000, y = 4000) {
+                h3 { "Dioxus Counter" }
+                pre {
+                    code {
+                        "fn Counter(cx: Scope) -> Element {\n"
+                        "    let mut count = use_state(cx, || 0);\n"
+                        "\n"
+                        "    render!(\n"
+                        "        p { \"{count}\" }\n"
+                        "        button { onclick: move |_| count += 1, \"+1\" }\n"
+                        "        button { onclick: move |_| count -= 1, \"-1\" }\n"
+                        "    )\n"
+                        "}\n"
+                    }
+                }
+            }
+
+            Step (name = "options-dioxus-demo-counter-usage", x = 2000, y = 4000) {
+                h3 { "Dioxus Counter Usage" }
+                pre {
+                    code {
+                        "fn App(cx: Scope) -> Element {\n"
+                        "    render!(\n"
+                        "        h1 { \"Counter Example - Dioxus\" }\n"
+                        "        Counter { }\n"
+                        "    )\n"
+                        "}\n"
+                    }
                 }
             }
 

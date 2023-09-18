@@ -4,6 +4,9 @@ build.site.perseus: install.perseus
 	cp CNAME docs
 	cp .nojekyll docs
 
+build.demo.dioxus: install.perseus
+	(cd demo-dioxus && dx build --release)
+
 build.demo.perseus: install.perseus
 	(cd demo-perseus && perseus deploy -e)
 
@@ -12,6 +15,9 @@ build.demo.yew: install.yew
 
 serve.site.perseus: build.site.perseus install.server
 	static-web-server --port 8080 --root ./docs
+
+serve.demo.dioxus: build.demo.dioxus install.server
+	static-web-server --port 8080 --root ./demo-dioxus/dist
 
 serve.demo.perseus: build.demo.perseus install.server
 	static-web-server --port 8080 --root ./demo-perseus/pkg

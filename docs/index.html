@@ -50,7 +50,7 @@ fn Counter() -> Html {
         &LT/div>
     }
 }
-</code></pre></div><div data-hk=11.3 class=step id=options-yew-demo-app data-x=2000 data-y=2000 data-rotate=0><h3 data-hk=11.0>Yew Counter Usage</h3><pre data-hk=11.1><code data-hk=11.2>#[function_component]
+</code></pre></div><div data-hk=11.3 class=step id=options-yew-demo-counter-usage data-x=2000 data-y=2000 data-rotate=0><h3 data-hk=11.0>Yew Counter Usage</h3><pre data-hk=11.1><code data-hk=11.2>#[function_component]
 fn App() -> Html {
     html! {
         <>
@@ -75,7 +75,7 @@ fn Counter&LTG: Html>(cx: Scope, state: &CounterStateRx) -> View&LTG> {
 struct State {
     total: i32,
 }
-</code></pre></div><div data-hk=15.3 class=step id=options-perseus-demo-app data-x=3000 data-y=3000 data-rotate=0><h3 data-hk=15.0>Perseus Counter Usage</h3><pre data-hk=15.1><code data-hk=15.2>#[auto_scope]
+</code></pre></div><div data-hk=15.3 class=step id=options-perseus-demo-counter-usage data-x=3000 data-y=3000 data-rotate=0><h3 data-hk=15.0>Perseus Counter Usage</h3><pre data-hk=15.1><code data-hk=15.2>#[auto_scope]
 fn index_page&LTG: Html>(cx: Scope, state: &CounterStateRx) -> View&LTG> {
     view! { cx,
         // Don't worry, there are much better ways of styling in Perseus!
@@ -83,4 +83,19 @@ fn index_page&LTG: Html>(cx: Scope, state: &CounterStateRx) -> View&LTG> {
         Counter(state)
     }
 }
-</code></pre></div><div data-hk=16.5 class=step id=options-dioxus data-x=0 data-y=4000 data-rotate=0><h3 data-hk=16.0>Dioxus</h3><ul data-hk=16.1><li data-hk=16.2>Similar 'reactivity' approach to Sycamore<li data-hk=16.3>Looks a lot like Sycamore too'<li data-hk=16.4>Supports CSR, SSR, and SSG</ul></div><div data-hk=17.7 class=step id=options-comparison data-x=0 data-y=5000 data-rotate=0><h3 data-hk=17.0>Comparison</h3><ul data-hk=17.1><li data-hk=17.2>Yew is slower than React<li data-hk=17.3>Sycamore is faster<li data-hk=17.4>Dioxus is faster still<li data-hk=17.5>Speed isn't everything<li data-hk=17.6>Dioxus and Sycamore don't allow copy paste html, Yew does</ul></div><div data-hk=18.10 class=step id=conclusion data-x=0 data-y=6000 data-rotate=0><h2 data-hk=18.0>Wait, should I even do this</h2><ul data-hk=18.1><li data-hk=18.2>Probably not<li data-hk=18.3>Speed isn't everything<li data-hk=18.4>Speed differences are small<li data-hk=18.5>But it depends<ul data-hk=18.6><li data-hk=18.7>These speeds are for rendering<li data-hk=18.8>Speed differences are much greater for raw calculations</ul><li data-hk=18.9>Dioxus and Sycamore don't allow copy paste html, Yew does</ul></div></div><script data-hk=1.1 src=/.perseus/static/js/impress.js></script><script data-hk=1.2>window.impress || document.write(`&lt;script src='https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/js/impress.js'>&lt;/script>');</script><script data-hk=1.3>impress().init()</script></div><div id=__perseus_popup_error></div>
+</code></pre></div><div data-hk=16.5 class=step id=options-dioxus data-x=0 data-y=4000 data-rotate=0><h3 data-hk=16.0>Dioxus</h3><ul data-hk=16.1><li data-hk=16.2>Similar 'reactivity' approach to Sycamore<li data-hk=16.3>Looks a lot like Sycamore too'<li data-hk=16.4>Supports CSR, SSR, SSG, Desktop, and more!</ul></div><div data-hk=17.3 class=step id=options-dioxus-demo-counter data-x=1000 data-y=4000 data-rotate=0><h3 data-hk=17.0>Dioxus Counter</h3><pre data-hk=17.1><code data-hk=17.2>fn Counter(cx: Scope) -> Element {
+    let mut count = use_state(cx, || 0);
+
+    render!(
+        p { "{count}" }
+        button { onclick: move |_| count += 1, "+1" }
+        button { onclick: move |_| count -= 1, "-1" }
+    )
+}
+</code></pre></div><div data-hk=18.3 class=step id=options-dioxus-demo-counter-usage data-x=2000 data-y=4000 data-rotate=0><h3 data-hk=18.0>Dioxus Counter Usage</h3><pre data-hk=18.1><code data-hk=18.2>fn App(cx: Scope) -> Element {
+    render!(
+        h1 { "Counter Example - Dioxus" }
+        Counter { }
+    )
+}
+</code></pre></div><div data-hk=19.7 class=step id=options-comparison data-x=0 data-y=5000 data-rotate=0><h3 data-hk=19.0>Comparison</h3><ul data-hk=19.1><li data-hk=19.2>Yew is slower than React<li data-hk=19.3>Sycamore is faster<li data-hk=19.4>Dioxus is faster still<li data-hk=19.5>Speed isn't everything<li data-hk=19.6>Dioxus and Sycamore don't allow copy paste html, Yew does</ul></div><div data-hk=20.10 class=step id=conclusion data-x=0 data-y=6000 data-rotate=0><h2 data-hk=20.0>Wait, should I even do this</h2><ul data-hk=20.1><li data-hk=20.2>Probably not<li data-hk=20.3>Speed isn't everything<li data-hk=20.4>Speed differences are small<li data-hk=20.5>But it depends<ul data-hk=20.6><li data-hk=20.7>These speeds are for rendering<li data-hk=20.8>Speed differences are much greater for raw calculations</ul><li data-hk=20.9>Dioxus and Sycamore don't allow copy paste html, Yew does</ul></div></div><script data-hk=1.1 src=/.perseus/static/js/impress.js></script><script data-hk=1.2>window.impress || document.write(`&lt;script src='https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/js/impress.js'>&lt;/script>');</script><script data-hk=1.3>impress().init()</script></div><div id=__perseus_popup_error></div>
