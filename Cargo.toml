@@ -21,6 +21,9 @@ features = [
     "client-helpers",
     "macros",
     "dflt-engine",
+#    "minify",
+#    "minify-css",
+#    "minify-js",
     "cache-initial-load",
 ]
 

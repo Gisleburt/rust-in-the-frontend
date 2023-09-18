@@ -11,15 +11,21 @@ pub struct ImpressProps<'a, G: Html> {
 pub fn Impress<'a, G: Html>(cx: Scope<'a>, props: ImpressProps<'a, G>) -> View<G> {
     let children = props.children.call(cx);
     view! { cx,
-        div (class = "impress-not-supported") {
-            div (class="fallback-message") {
-                p { "Your browser " b { "doesn't support the features required" } "by impress.js, so you are presented with a simplified version of this presentation." }
-                p { "For the best experience please use the latest Chrome, Safari or Firefox browser." }
-            }
+        // div (class="fallback-message") {
+        //     p { "Your browser " b { "doesn't support the features required" } "by impress.js, so you are presented with a simplified version of this presentation." }
+        //     p { "For the best experience please use the latest Chrome, Safari or Firefox browser." }
+        // }
 
-            div (id = "impress") {
-                (children)
-            }
+        div (
+            id = "impress",
+            data-transition-duration = 1000,
+            data-width = 1024,
+            data-height = 768,
+            data-max-scale = 3,
+            data-min-scale = 0,
+            data-perspective = 1000
+        ) {
+            (children)
         }
         (if props.enabled {
             view! { cx,

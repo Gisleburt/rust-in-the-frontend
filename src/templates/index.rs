@@ -34,6 +34,7 @@ fn head(cx: Scope) -> View<SsrNode> {
     view! { cx,
         title { "Rust in the FrontEnd" }
         link (rel = "stylesheet", href = "/.perseus/static/css/impress-common.css")
+        link (rel = "stylesheet", href = "/.perseus/static/css/impress-demo.css")
         link(rel="apple-touch-icon",sizes="180x180",href="/.perseus/static/apple-touch-icon.png")
         link(rel="icon",type="image/png",sizes="32x32",href="/.perseus/static/favicon-32x32.png")
         link(rel="icon",type="image/png",sizes="16x16",href="/.perseus/static/favicon-16x16.png")
