@@ -21,7 +21,18 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             }
 
             Step (name = "why-rust-wasm", x = 3000) {
-                h3 { "Rust WASM tooling is very mature" }
+                h3 { "Rust WASM tooling and documentation is very mature" }
+                ul {
+                    li { "Tier 2: rustup add target wasm32-unknown-unknown" }
+                    li {
+                        "Living book, tutorials, tools: "
+                        a(href = "https://rustwasm.github.io/") {"https://rustwasm.github.io/"}
+                    }
+                    li {
+                        "Write once, run anywhere: "
+                        a(href = "https://tauri.app/") {"https://tauri.app/"}
+                    }
+                }
             }
 
             Step (name = "why-speed-wasm", x = 4000) {
@@ -34,8 +45,8 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 h3 { "Rust is robust, reliable and 'correct'" }
                 pre {
                     code {
-                        "async function getUser(email: string): Promise<Result<Error, User> { \n"
-                        "  const user = JSON.parse(await fetch(`https://example.com/${email}`));\n"
+                        "async function getUser(email: string): Promise<Result<Error, User>> { \n"
+                        "  const user = await (await fetch(`https://example.com/${email}`)).json()\n"
                         "  return user.email === email\n"
                         "    ? Result.ok(user)\n"
                         "    : Result.error(new Error('Incorrect user returned');\n"
@@ -44,15 +55,15 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
                 pre {
                     code {
-                        "async fn getUser(email: &str): Result<User, GetUserError> { \n"
-                        "    let user: User = reqwest::get(`https://example.com/${email}`))\n"
+                        "async fn getUser(email: &str) -> Result<User, GetUserError> { \n"
+                        "    let user: User = reqwest::get(format!(\"https://example.com/{email}\"))\n"
                         "        .await?\n"
                         "        .json()\n"
-                        "        .await?\n"
-                        "    return if user.email === email {\n"
+                        "        .await?;\n"
+                        "    if user.email == email {\n"
                         "        Ok(user)\n"
                         "    } else { \n"
-                        "        Err(GetUserError::IncorrectUserReturned;\n"
+                        "        Err(GetUserError::IncorrectUserReturned)\n"
                         "    } \n"
                         "}"
                     }
