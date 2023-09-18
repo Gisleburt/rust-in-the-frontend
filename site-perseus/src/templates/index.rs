@@ -46,27 +46,27 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 pre {
                     code {
                         "async function getUser(email: string): Promise<Result<Error, User>> { \n"
-                        "  const response = await fetch(`https://example.com/${email}`)));\n"
+                        "  const response = await fetch(`https://example.com/${email}`);\n"
                         "  const user = await response.json()\n"
                         "  return user.email === email\n"
                         "    ? Result.ok(user)\n"
                         "    : Result.error(new Error('Incorrect user returned');\n"
-                        "}"
+                        "}\n"
                     }
                 }
                 pre {
                     code {
-                        "async fn getUser(email: &str) -> Result<User, GetUserError> { \n"
+                        "async fn getUser(email: &str) -> Result<User, GetUserError> {\n"
                         "    let user: User = get(format!(\"https://example.com/{email}\"))\n"
                         "        .await?\n"
                         "        .json()\n"
                         "        .await?;\n"
                         "    if user.email == email {\n"
                         "        Ok(user)\n"
-                        "    } else { \n"
+                        "    } else {\n"
                         "        Err(GetUserError::IncorrectUserReturned)\n"
-                        "    } \n"
-                        "}"
+                        "    }\n"
+                        "}\n"
                     }
                 }
             }
