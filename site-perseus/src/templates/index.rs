@@ -77,9 +77,14 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
 
             Step (name = "options-yew", x = 0, y = 2000) {
                 h3 { "Yew" }
+                ul {
+                    li { "Yew looks a lot like React" }
+                    li { "Uses a Virtual DOM" }
+                    li { "Supports CSR, SSR, and SSG" }
+                }
             }
 
-            Step (name = "options-yew-demo", x = 1000, y = 2000) {
+            Step (name = "options-yew-demo-calculator", x = 1000, y = 2000) {
                 h3 { "Counter Demo" }
                 pre {
                     code {
@@ -107,7 +112,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-yew-demo", x = 1000, y = 2000) {
+            Step (name = "options-yew-demo-app", x = 2000, y = 2000) {
                 h3 { "Counter Demo" }
                 pre {
                     code {
@@ -125,11 +130,21 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             }
 
             Step (name = "options-perseus", x = 0, y = 3000) {
-                h3 { "Sycamore / Perseus" }
+                h3 { "Perseus (Sycamore)" }
+                ul {
+                    li { "Perseus is to Sycamore what Next is to React" }
+                    li { "Does not use Virtual DOM, uses 'fine grain reactivity'" }
+                    li { "Supports CSR, SSR, and SSG" }
+                }
             }
 
             Step (name = "options-dioxus", x = 0, y = 4000) {
                 h3 { "Dioxus" }
+                ul {
+                    li { "Similar 'reactivity' approach to Sycamore" }
+                    li { "Looks a lot like Sycamore too'" }
+                    li { "Supports CSR, SSR, and SSG" }
+                }
             }
 
             Step (name = "options-comparison", x = 0, y = 5000) {
