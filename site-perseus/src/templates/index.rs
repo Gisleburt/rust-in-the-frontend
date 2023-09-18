@@ -46,7 +46,8 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 pre {
                     code {
                         "async function getUser(email: string): Promise<Result<Error, User>> { \n"
-                        "  const user = await (await fetch(`https://example.com/${email}`)).json()\n"
+                        "  const response = await fetch(`https://example.com/${email}`)));\n"
+                        "  const user = await response.json()\n"
                         "  return user.email === email\n"
                         "    ? Result.ok(user)\n"
                         "    : Result.error(new Error('Incorrect user returned');\n"
@@ -54,9 +55,9 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                     }
                 }
                 pre {
-                    code {
+                    code {Mad
                         "async fn getUser(email: &str) -> Result<User, GetUserError> { \n"
-                        "    let user: User = reqwest::get(format!(\"https://example.com/{email}\"))\n"
+                        "    let user: User = get(format!(\"https://example.com/{email}\"))\n"
                         "        .await?\n"
                         "        .json()\n"
                         "        .await?;\n"
