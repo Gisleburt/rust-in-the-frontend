@@ -279,6 +279,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "demo-perseus"
+version = "0.1.0"
+dependencies = [
+ "perseus",
+ "perseus-axum",
+ "serde",
+ "serde_json",
+ "sycamore",
+ "tokio",
+]
+
+[[package]]
 name = "demo-yew"
 version = "0.1.0"
 dependencies = [

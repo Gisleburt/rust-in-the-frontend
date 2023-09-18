@@ -84,12 +84,12 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-yew-demo-calculator", x = 1000, y = 2000) {
-                h3 { "Counter Demo" }
+            Step (name = "options-yew-demo-counter", x = 1000, y = 2000) {
+                h3 { "Yew Counter" }
                 pre {
                     code {
                         "#[function_component]\n"
-                        "fn Calculator() -> Html {\n"
+                        "fn Counter() -> Html {\n"
                         "    let counter = use_state(|| 0);\n"
                         "    let increment = {\n"
                         "        let counter = counter.clone();\n"
@@ -113,15 +113,15 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             }
 
             Step (name = "options-yew-demo-app", x = 2000, y = 2000) {
-                h3 { "Counter Demo" }
+                h3 { "Yew Counter Usage" }
                 pre {
                     code {
                         "#[function_component]\n"
                         "fn App() -> Html {\n"
                         "    html! {\n"
                         "        <>\n"
-                        "            <h1>{\"Calculator Example\"}</h1>\n"
-                        "            <Calculator />\n"
+                        "            <h1>{\"Counter Example - Yew\"}</h1>\n"
+                        "            <Counter />\n"
                         "        </>\n"
                         "    }\n"
                         "}\n"
@@ -135,6 +135,54 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                     li { "Perseus is to Sycamore what Next is to React" }
                     li { "Does not use Virtual DOM, uses 'fine grain reactivity'" }
                     li { "Supports CSR, SSR, and SSG" }
+                }
+            }
+
+            Step (name = "options-perseus-demo-counter", x = 1000, y = 3000) {
+                h3 { "Perseus Counter" }
+                pre {
+                    code {
+                        "#[component]\n"
+                        "#[auto_scope]\n"
+                        "fn Counter<G: Html>(cx: Scope, state: &CounterStateRx) -> View<G> {\n"
+                        "    view! { cx,\n"
+                        "        div {\n"
+                        "          p { (state.total.get()) }\n"
+                        "          button( on:click = move |_| {state.total.set(*state.total.get() + 1)}) { \"+1\" }\n"
+                        "          button( on:click = move |_| {state.total.set(*state.total.get() - 1)}) { \"-1\" }\n"
+                        "        }\n"
+                        "    }\n"
+                        "}\n"
+                    }
+                }
+            }
+
+            Step (name = "options-perseus-demo-state", x = 2000, y = 3000) {
+                h3 { "Perseus State" }
+                pre {
+                    code {
+                        "#[derive(Default, Serialize, Deserialize, Clone, ReactiveState)]\n"
+                        "#[rx(alias = \"CounterStateRx\")]\n"
+                        "struct State {\n"
+                        "    total: i32,\n"
+                        "}\n"
+                    }
+                }
+            }
+
+            Step (name = "options-perseus-demo-app", x = 3000, y = 3000) {
+                h3 { "Perseus Counter Usage" }
+                pre {
+                    code {
+                        "#[auto_scope]\n"
+                        "fn index_page<G: Html>(cx: Scope, state: &CounterStateRx) -> View<G> {\n"
+                        "    view! { cx,\n"
+                        "        // Don't worry, there are much better ways of styling in Perseus!\n"
+                        "        h1 { \"Counter Example - Perseus\" }\n"
+                        "        Counter(state)\n"
+                        "    }\n"
+                        "}\n"
+                    }
                 }
             }
 

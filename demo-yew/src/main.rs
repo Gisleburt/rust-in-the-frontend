@@ -4,14 +4,14 @@ use yew::prelude::*;
 fn App() -> Html {
     html! {
         <>
-            <h1>{"Calculator Example"}</h1>
-            <Calculator />
+            <h1>{"Counter Example - Yew"}</h1>
+            <Counter />
         </>
     }
 }
 
 #[function_component]
-fn Calculator() -> Html {
+fn Counter() -> Html {
     let counter = use_state(|| 0);
     let increment = {
         let counter = counter.clone();
