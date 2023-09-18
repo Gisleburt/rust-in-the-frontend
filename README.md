@@ -32,7 +32,7 @@ Actually, there are a lot of options, I'm going to run quickly through a few of 
 - Speed isn't everything
 - No HTML copy-paste in Perseus and Dioxus
 
-Wait, should I do this
+Wait, should I even do this
 ----------------------
 
 - Probably not

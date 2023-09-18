@@ -10,20 +10,97 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 h2 { "A brief guide to making websites with Rust in 2023" }
             }
 
-            Step (name = "why", x = 1000, rotate = 90) {
+            Step (name = "why", x = 1000) {
                 h2 { "Why would you want to do this" }
             }
 
-            Step (name = "why-speed-rust", x = 500, rotate = 90) {
-                h2 { "Rust is fast" }
+            Step (name = "why-rust-speed", x = 2000) {
+                h3 { "Rust is fast" }
                 p { "Rust is a language known for its speed" }
                 img (src="/.perseus/static/images/speed-elapsed-seconds.png")
             }
 
-            Step (name = "why-speed-wasm", x = 500, y = 500, rotate = 180) {
-                h2 { "WASM is fast" }
+            Step (name = "why-rust-wasm", x = 3000) {
+                h3 { "Rust WASM tooling is very mature" }
+            }
+
+            Step (name = "why-speed-wasm", x = 4000) {
+                h3 { "WASM is fast" }
                 p { "WASM is known to provide a secure, high performance runtime for the web" }
                 img (src="/.perseus/static/images/speed-wasm.png")
+            }
+
+            Step (name = "why-rust-correctness", x = 5000) {
+                h3 { "Rust is robust, reliable and 'correct'" }
+                pre {
+                    code {
+                        "async function getUser(email: string): Promise<Result<Error, User> { \n"
+                        "  const user = JSON.parse(await fetch(`https://example.com/${email}`));\n"
+                        "  return user.email === email\n"
+                        "    ? Result.ok(user)\n"
+                        "    : Result.error(new Error('Incorrect user returned');\n"
+                        "}"
+                    }
+                }
+                pre {
+                    code {
+                        "async fn getUser(email: &str): Result<User, GetUserError> { \n"
+                        "    let user: User = reqwest::get(`https://example.com/${email}`))\n"
+                        "        .await?\n"
+                        "        .json()\n"
+                        "        .await?\n"
+                        "    return if user.email === email {\n"
+                        "        Ok(user)\n"
+                        "    } else { \n"
+                        "        Err(GetUserError::IncorrectUserReturned;\n"
+                        "    } \n"
+                        "}"
+                    }
+                }
+            }
+
+            Step (name = "options", x = 0, y = 1000) {
+                h2 { "What are my options" }
+            }
+
+            Step (name = "options-yew", x = 0, y = 2000) {
+                h3 { "Yew" }
+            }
+
+            Step (name = "options-perseus", x = 0, y = 3000) {
+                h3 { "Sycamore / Perseus" }
+            }
+
+            Step (name = "options-dioxus", x = 0, y = 4000) {
+                h3 { "Dioxus" }
+            }
+
+            Step (name = "options-comparison", x = 0, y = 5000) {
+                h3 { "Comparison" }
+                ul {
+                    li { "Yew is slower than React" }
+                    li { "Sycamore is faster" }
+                    li { "Dioxus is faster still" }
+                    li { "Speed isn't everything" }
+                    li { "Dioxus and Sycamore don't allow copy paste html, Yew does" }
+                }
+            }
+
+            Step (name = "conclusion", x = 0, y = 6000) {
+                h2 { "Wait, should I even do this" }
+                ul {
+                    li { "Probably not" }
+                    li { "Speed isn't everything" }
+                    li { "Speed differences are small" }
+                    li {
+                        "But it depends"
+                        ul {
+                            li { "These speeds are for rendering" }
+                            li { "Speed differences are much greater for raw calculations" }
+                        }
+                    }
+                    li { "Dioxus and Sycamore don't allow copy paste html, Yew does" }
+                }
             }
         }
     }
