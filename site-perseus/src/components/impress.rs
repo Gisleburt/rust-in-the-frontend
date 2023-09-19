@@ -30,7 +30,7 @@ pub fn Impress<'a, G: Html>(cx: Scope<'a>, props: ImpressProps<'a, G>) -> View<G
         (if props.enabled {
             view! { cx,
                 script (src="/.perseus/static/js/impress.js")
-                script { "window.impress || document.write(`<script src='https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/js/impress.js'>\x3C/script>');" }
+                script { "window.impress || document.write(`<script src='https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/js/impress.js'></script>`);" }
                 script { "impress().init()" }
             }
         } else {

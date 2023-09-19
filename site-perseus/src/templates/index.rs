@@ -3,7 +3,7 @@ use sycamore::prelude::*;
 use crate::components::{step::Step, impress::Impress, code::Code};
 
 fn index_page<G: Html>(cx: Scope) -> View<G> {
-    let col_mul = 1000;
+    let col_mul = 1200;
     let row_mul = 1000;
     view! { cx,
         Impress(enabled = true) {
@@ -72,10 +72,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
                 Code(language = "rust") {
                     "async fn getUser(email: &str) -> Result<User, GetUserError> {\n"
-                    "    let user: User = get(format!(\"https://example.com/{email}\"))\n"
-                    "        .await?\n"
-                    "        .json()\n"
-                    "        .await?;\n"
+                    "    let user: User = get(format!(\"https://example.com/{email}\")).await?.json().await?;\n"
                     "    if user.email == email {\n"
                     "        Ok(user)\n"
                     "    } else {\n"
@@ -90,7 +87,14 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             }
 
             Step (name = "options-yew", y = 2 * row_mul, x = 0 * col_mul) {
-                h3 { "Yew" }
+                header {
+                    img (
+                        class = "logo",
+                        src = "/.perseus/static/images/logo-yew.png",
+                        alt = "Sycamore Logo"
+                    )
+                    h3 { "Yew" }
+                }
                 ul {
                     li { "Yew looks a lot like React" }
                     li { "Uses a Virtual DOM" }
@@ -140,7 +144,14 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             }
 
             Step (name = "options-perseus", y = 3 * row_mul, x = 0 * col_mul) {
-                h3 { "Perseus (Sycamore)" }
+                header {
+                    img (
+                        class = "logo",
+                        src = "/.perseus/static/images/logo-sycamore.png",
+                        alt = "Sycamore Logo"
+                    )
+                    h3 {"Perseus (Sycamore)" }
+                }
                 ul {
                     li { "Perseus is to Sycamore what Next is to React" }
                     li { "Does not use Virtual DOM, uses 'fine grain reactivity'" }
@@ -190,7 +201,14 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             }
 
             Step (name = "options-dioxus", y = 4 * row_mul, x = 0 * col_mul) {
-                h3 { "Dioxus" }
+                header {
+                    img (
+                        class = "logo",
+                        src = "/.perseus/static/images/logo-dioxus.png",
+                        alt = "Sycamore Logo"
+                    )
+                    h3 { "Dioxus" }
+                }
                 ul {
                     li { "Similar 'reactivity' approach to Sycamore" }
                     li { "Looks a lot like Sycamore too'" }
@@ -264,7 +282,7 @@ fn head(cx: Scope) -> View<SsrNode> {
         link (rel = "stylesheet", href = "/.perseus/static/css/impress-common.css")
         link (rel = "stylesheet", href = "/.perseus/static/css/rust-in-the-frontend.css")
         link (rel = "stylesheet", href = "/.perseus/static/css/rust-in-the-frontend.css")
-        link (rel = "stylesheet", href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css")
+        link (rel = "stylesheet", href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/a11y-dark.min.css")
         link (rel = "apple-touch-icon",sizes = "180x180",href = "/.perseus/static/apple-touch-icon.png")
         link (rel = "icon",type = "image/png",sizes = "32x32",href = "/.perseus/static/favicon-32x32.png")
         link (rel = "icon",type = "image/png",sizes = "16x16",href = "/.perseus/static/favicon-16x16.png")
@@ -273,8 +291,8 @@ fn head(cx: Scope) -> View<SsrNode> {
         meta (name = "msapplication-TileColor",content = "#da532c")
         meta (name = "theme-color",content = "#ffffff")
         script (src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js")
-        script (src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/rust.min.js")
-        script (src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/typescript.min.js")
+        script (src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js")
+        script (src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/typescript.min.js")
     }
 }
 

@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     justify-content: center;
     border-radius: 1rem;
-    width: 800px;
+    width: 1000px;
     height: 600px;
     padding: 40px 60px;
     background: #333333;
@@ -26,6 +26,14 @@ header, .center {
 
 .code {
     font-family: "Source Code Pro", monospace;
+}
+
+ul {
+    list-style: disc;
+}
+
+li {
+    padding: 0.5rem 0;
 }
 
 img {
@@ -60,4 +68,18 @@ pre {
 
 #impress pre code {
     padding: 0.5rem;
+}
+
+a:active, a:hover, a:focus, a:visited {
+    color: inherit;
+    font-weight: normal;
+}
+
+a:hover {
+    font-weight: bold;
+}
+
+.logo {
+    padding: 1rem;
+    max-width: 10rem;
 }

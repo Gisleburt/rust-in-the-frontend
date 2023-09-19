@@ -10,10 +10,11 @@ pub struct CodeProps<'a, G: Html> {
 #[component]
 pub fn Code<'a, G: Html>(cx: Scope<'a>, props: CodeProps<'a, G>) -> View<G> {
     let children = props.children.call(cx);
-    let class = format!("language-{}", props.language);
+    let pre_class = format!("theme-ally-dark");
+    let code_class = format!("language-{}", props.language);
     view! { cx,
-        pre {
-            code(class = class) {
+        pre(class = pre_class) {
+            code(class = code_class) {
                 (children)
             }
         }
