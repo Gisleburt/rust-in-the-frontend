@@ -29,7 +29,6 @@ fn Counter<G: Html>(cx: Scope, state: &CounterStateRx) -> View<G> {
 #[auto_scope]
 fn index_page<G: Html>(cx: Scope, state: &CounterStateRx) -> View<G> {
     view! { cx,
-        // Don't worry, there are much better ways of styling in Perseus!
         h1 { "Counter Example - Perseus" }
         Counter(state)
     }

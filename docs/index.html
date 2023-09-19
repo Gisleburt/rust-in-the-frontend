@@ -9,17 +9,17 @@
         
         
 
-window.__PERSEUS_GLOBAL_STATE = `null`;</script><meta itemprop=__perseus_head_boundary><title>Rust in the FrontEnd</title><link rel=stylesheet href=/.perseus/static/css/meyerweb.css><link rel=stylesheet href=/.perseus/static/css/impress-common.css><link rel=stylesheet href=/.perseus/static/css/rust-in-the-frontend.css><link rel=apple-touch-icon sizes=180x180 href=/.perseus/static/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/.perseus/static/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/.perseus/static/favicon-16x16.png><link rel=manifest href=/.perseus/static/site.webmanifest><link rel=mask-icon href=/.perseus/static/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content=#da532c><meta name=theme-color content=#ffffff><script>
+window.__PERSEUS_GLOBAL_STATE = `null`;</script><meta itemprop=__perseus_head_boundary><title>Rust in the FrontEnd</title><link rel=stylesheet href=/.perseus/static/css/meyerweb.css><link rel=stylesheet href=/.perseus/static/css/impress-common.css><link rel=stylesheet href=/.perseus/static/css/rust-in-the-frontend.css><link rel=stylesheet href=/.perseus/static/css/rust-in-the-frontend.css><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/default.min.css><link rel=apple-touch-icon sizes=180x180 href=/.perseus/static/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/.perseus/static/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/.perseus/static/favicon-16x16.png><link rel=manifest href=/.perseus/static/site.webmanifest><link rel=mask-icon href=/.perseus/static/safari-pinned-tab.svg color=#5bbad5><meta name=msapplication-TileColor content=#da532c><meta name=theme-color content=#ffffff><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/rust.min.js></script><script src=https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/typescript.min.js></script><script>
 window.__PERSEUS_INITIAL_STATE = `null`;
 window.__PERSEUS_INITIAL_WIDGET_STATES = `{}`;
-window.__PERSEUS_TRANSLATIONS = ``;</script><meta itemprop=__perseus_head_end><script>//</script><body><div id=root><div data-hk=1.0 id=impress data-transition-duration=1000 data-width=1024 data-height=768 data-max-scale=3 data-min-scale=0 data-perspective=1000><div data-hk=2.2 class=step id=intro data-x=0 data-y=0 data-rotate=0><h1 data-hk=2.0>Rust in the FrontEnd</h1><h2 data-hk=2.1>A brief guide to making websites with Rust in 2023</h2></div><div data-hk=3.1 class=step id=why data-x=1000 data-y=0 data-rotate=0><h2 data-hk=3.0>Why would you want to do this</h2></div><div data-hk=4.3 class=step id=why-rust-speed data-x=2000 data-y=0 data-rotate=0><h3 data-hk=4.0>Rust is fast</h3><p data-hk=4.1>Rust is a language known for its speed</p><img data-hk=4.2 src=/.perseus/static/images/speed-elapsed-seconds.png></div><div data-hk=5.7 class=step id=why-rust-wasm data-x=3000 data-y=0 data-rotate=0><h3 data-hk=5.0>Rust WASM tooling and documentation is very mature</h3><ul data-hk=5.1><li data-hk=5.2>Tier 2: rustup add target wasm32-unknown-unknown<li data-hk=5.3>Living book, tutorials, tools: <a data-hk=5.4 href=https://rustwasm.github.io/>https://rustwasm.github.io/</a><li data-hk=5.5>Write once, run anywhere: <a data-hk=5.6 href=https://tauri.app/>https://tauri.app/</a></ul></div><div data-hk=6.3 class=step id=why-speed-wasm data-x=4000 data-y=0 data-rotate=0><h3 data-hk=6.0>WASM is fast</h3><p data-hk=6.1>WASM is known to provide a secure, high performance runtime for the web</p><img data-hk=6.2 src=/.perseus/static/images/speed-wasm.png></div><div data-hk=7.5 class=step id=why-rust-correctness data-x=5000 data-y=0 data-rotate=0><h3 data-hk=7.0>Rust is robust, reliable and 'correct'</h3><pre data-hk=7.1><code data-hk=7.2>async function getUser(email: string): Promise&LTResult&LTError, User>> { 
+window.__PERSEUS_TRANSLATIONS = ``;</script><meta itemprop=__perseus_head_end><script>//</script><body><div id=root><div data-hk=1.0 id=impress data-transition-duration=1000 data-width=1024 data-height=768 data-max-scale=3 data-min-scale=0 data-perspective=1000><div data-hk=2.5 class=step id=intro data-x=0 data-y=0 data-rotate=0><header data-hk=2.0><img data-hk=2.1 src=/.perseus/static/images/rustacean-flat-happy.png alt="Ferris the Crab looking happy"><h1 data-hk=2.2>Rust in the Frontend</h1><h2 data-hk=2.3>A brief guide to making websites with Rust in 2023</h2><h2 data-hk=2.4>Daniel Mason</h2></header></div><div data-hk=3.3 class=step id=why data-x=1000 data-y=0 data-rotate=0><div data-hk=3.0 class=center><img data-hk=3.1 src=/.perseus/static/images/why-jackie-chan.png alt="Jackie Chan: Why would you do that?"><h2 data-hk=3.2 style="display: none">Why would I want to do that?</h2></div></div><div data-hk=4.3 class=step id=why-speed-rust data-x=2000 data-y=0 data-rotate=0><h3 data-hk=4.0>Rust is fast</h3><p data-hk=4.1>Rust is a language known for its speed</p><img data-hk=4.2 src=/.perseus/static/images/speed-elapsed-seconds.png></div><div data-hk=5.3 class=step id=why-speed-wasm data-x=3000 data-y=0 data-rotate=0><h3 data-hk=5.0>WASM is fast</h3><p data-hk=5.1>WASM is known to provide a secure, high performance runtime for the web</p><img data-hk=5.2 src=/.perseus/static/images/speed-wasm.png></div><div data-hk=6.8 class=step id=why-rust-wasm data-x=4000 data-y=0 data-rotate=0><h3 data-hk=6.0>Rust WASM ecosystem is very mature</h3><ul data-hk=6.1><li data-hk=6.2>Tier 2: <span data-hk=6.3 class=code>rustup add target wasm32-unknown-unknown</span><li data-hk=6.4>Living book, tutorials, tools: <a data-hk=6.5 href=https://rustwasm.github.io/>https://rustwasm.github.io/</a><li data-hk=6.6>Write once, run anywhere: <a data-hk=6.7 href=https://tauri.app/>https://tauri.app/</a></ul></div><div data-hk=7.1 class=step id=why-rust-correctness data-x=5000 data-y=0 data-rotate=0><h3 data-hk=7.0>Rust is robust, reliable and 'correct'</h3><pre data-hk=8.0><code data-hk=8.1 class=language-typescript>async function getUser(email: string): Promise&LTResult&LTError, User>> { 
   const response = await fetch(`https://example.com/${email}`);
   const user = await response.json()
   return user.email === email
     ? Result.ok(user)
     : Result.error(new Error('Incorrect user returned');
 }
-</code></pre><pre data-hk=7.3><code data-hk=7.4>async fn getUser(email: &str) -> Result&LTUser, GetUserError> {
+</code></pre><pre data-hk=9.0><code data-hk=9.1 class=language-rust>async fn getUser(email: &str) -> Result&LTUser, GetUserError> {
     let user: User = get(format!("https://example.com/{email}"))
         .await?
         .json()
@@ -30,7 +30,7 @@ window.__PERSEUS_TRANSLATIONS = ``;</script><meta itemprop=__perseus_head_end><s
         Err(GetUserError::IncorrectUserReturned)
     }
 }
-</code></pre></div><div data-hk=8.1 class=step id=options data-x=0 data-y=1000 data-rotate=0><h2 data-hk=8.0>What are my options</h2></div><div data-hk=9.5 class=step id=options-yew data-x=0 data-y=2000 data-rotate=0><h3 data-hk=9.0>Yew</h3><ul data-hk=9.1><li data-hk=9.2>Yew looks a lot like React<li data-hk=9.3>Uses a Virtual DOM<li data-hk=9.4>Supports CSR, SSR, and SSG</ul></div><div data-hk=10.3 class=step id=options-yew-demo-counter data-x=1000 data-y=2000 data-rotate=0><h3 data-hk=10.0>Yew Counter</h3><pre data-hk=10.1><code data-hk=10.2>#[function_component]
+</code></pre></div><div data-hk=10.1 class=step id=options data-x=0 data-y=1000 data-rotate=0><h2 data-hk=10.0>What are my options</h2></div><div data-hk=11.5 class=step id=options-yew data-x=0 data-y=2000 data-rotate=0><h3 data-hk=11.0>Yew</h3><ul data-hk=11.1><li data-hk=11.2>Yew looks a lot like React<li data-hk=11.3>Uses a Virtual DOM<li data-hk=11.4>Supports CSR, SSR, and SSG</ul></div><div data-hk=12.1 class=step id=options-yew-demo-counter data-x=1000 data-y=2000 data-rotate=0><h3 data-hk=12.0>Yew Counter</h3><pre data-hk=13.0><code data-hk=13.1 class=language-rust>#[function_component]
 fn Counter() -> Html {
     let counter = use_state(|| 0);
     let increment = {
@@ -50,7 +50,7 @@ fn Counter() -> Html {
         &LT/div>
     }
 }
-</code></pre></div><div data-hk=11.3 class=step id=options-yew-demo-counter-usage data-x=2000 data-y=2000 data-rotate=0><h3 data-hk=11.0>Yew Counter Usage</h3><pre data-hk=11.1><code data-hk=11.2>#[function_component]
+</code></pre></div><div data-hk=14.1 class=step id=options-yew-demo-counter-usage data-x=2000 data-y=2000 data-rotate=0><h3 data-hk=14.0>Yew Counter Usage</h3><pre data-hk=15.0><code data-hk=15.1 class=language-rust>#[function_component]
 fn App() -> Html {
     html! {
         <>
@@ -59,7 +59,7 @@ fn App() -> Html {
         &LT/>
     }
 }
-</code></pre></div><div data-hk=12.5 class=step id=options-perseus data-x=0 data-y=3000 data-rotate=0><h3 data-hk=12.0>Perseus (Sycamore)</h3><ul data-hk=12.1><li data-hk=12.2>Perseus is to Sycamore what Next is to React<li data-hk=12.3>Does not use Virtual DOM, uses 'fine grain reactivity'<li data-hk=12.4>Supports CSR, SSR, and SSG</ul></div><div data-hk=13.3 class=step id=options-perseus-demo-counter data-x=1000 data-y=3000 data-rotate=0><h3 data-hk=13.0>Perseus Counter</h3><pre data-hk=13.1><code data-hk=13.2>#[component]
+</code></pre></div><div data-hk=16.5 class=step id=options-perseus data-x=0 data-y=3000 data-rotate=0><h3 data-hk=16.0>Perseus (Sycamore)</h3><ul data-hk=16.1><li data-hk=16.2>Perseus is to Sycamore what Next is to React<li data-hk=16.3>Does not use Virtual DOM, uses 'fine grain reactivity'<li data-hk=16.4>Supports CSR, SSR, and SSG</ul></div><div data-hk=17.1 class=step id=options-perseus-demo-counter data-x=1000 data-y=3000 data-rotate=0><h3 data-hk=17.0>Perseus Counter</h3><pre data-hk=18.0><code data-hk=18.1 class=language-rust>#[component]
 #[auto_scope]
 fn Counter&LTG: Html>(cx: Scope, state: &CounterStateRx) -> View&LTG> {
     view! { cx,
@@ -70,20 +70,19 @@ fn Counter&LTG: Html>(cx: Scope, state: &CounterStateRx) -> View&LTG> {
         }
     }
 }
-</code></pre></div><div data-hk=14.3 class=step id=options-perseus-demo-state data-x=2000 data-y=3000 data-rotate=0><h3 data-hk=14.0>Perseus State</h3><pre data-hk=14.1><code data-hk=14.2>#[derive(Default, Serialize, Deserialize, Clone, ReactiveState)]
+</code></pre></div><div data-hk=19.1 class=step id=options-perseus-demo-state data-x=2000 data-y=3000 data-rotate=0><h3 data-hk=19.0>Perseus State</h3><pre data-hk=20.0><code data-hk=20.1 class=language-rust>#[derive(Default, Serialize, Deserialize, Clone, ReactiveState)]
 #[rx(alias = "CounterStateRx")]
 struct State {
     total: i32,
 }
-</code></pre></div><div data-hk=15.3 class=step id=options-perseus-demo-counter-usage data-x=3000 data-y=3000 data-rotate=0><h3 data-hk=15.0>Perseus Counter Usage</h3><pre data-hk=15.1><code data-hk=15.2>#[auto_scope]
+</code></pre></div><div data-hk=21.1 class=step id=options-perseus-demo-counter-usage data-x=3000 data-y=3000 data-rotate=0><h3 data-hk=21.0>Perseus Counter Usage</h3><pre data-hk=22.0><code data-hk=22.1 class=language-rust>#[auto_scope]
 fn index_page&LTG: Html>(cx: Scope, state: &CounterStateRx) -> View&LTG> {
     view! { cx,
-        // Don't worry, there are much better ways of styling in Perseus!
         h1 { "Counter Example - Perseus" }
         Counter(state)
     }
 }
-</code></pre></div><div data-hk=16.5 class=step id=options-dioxus data-x=0 data-y=4000 data-rotate=0><h3 data-hk=16.0>Dioxus</h3><ul data-hk=16.1><li data-hk=16.2>Similar 'reactivity' approach to Sycamore<li data-hk=16.3>Looks a lot like Sycamore too'<li data-hk=16.4>Supports CSR, SSR, SSG, Desktop, and more!</ul></div><div data-hk=17.3 class=step id=options-dioxus-demo-counter data-x=1000 data-y=4000 data-rotate=0><h3 data-hk=17.0>Dioxus Counter</h3><pre data-hk=17.1><code data-hk=17.2>fn Counter(cx: Scope) -> Element {
+</code></pre></div><div data-hk=23.5 class=step id=options-dioxus data-x=0 data-y=4000 data-rotate=0><h3 data-hk=23.0>Dioxus</h3><ul data-hk=23.1><li data-hk=23.2>Similar 'reactivity' approach to Sycamore<li data-hk=23.3>Looks a lot like Sycamore too'<li data-hk=23.4>Supports CSR, SSR, SSG, Desktop, and more!</ul></div><div data-hk=24.1 class=step id=options-dioxus-demo-counter data-x=1000 data-y=4000 data-rotate=0><h3 data-hk=24.0>Dioxus Counter</h3><pre data-hk=25.0><code data-hk=25.1 class=language-rust>fn Counter(cx: Scope) -> Element {
     let mut count = use_state(cx, || 0);
 
     render!(
@@ -92,10 +91,10 @@ fn index_page&LTG: Html>(cx: Scope, state: &CounterStateRx) -> View&LTG> {
         button { onclick: move |_| count -= 1, "-1" }
     )
 }
-</code></pre></div><div data-hk=18.3 class=step id=options-dioxus-demo-counter-usage data-x=2000 data-y=4000 data-rotate=0><h3 data-hk=18.0>Dioxus Counter Usage</h3><pre data-hk=18.1><code data-hk=18.2>fn App(cx: Scope) -> Element {
+</code></pre></div><div data-hk=26.1 class=step id=options-dioxus-demo-counter-usage data-x=2000 data-y=4000 data-rotate=0><h3 data-hk=26.0>Dioxus Counter Usage</h3><pre data-hk=27.0><code data-hk=27.1 class=language-rust>fn App(cx: Scope) -> Element {
     render!(
         h1 { "Counter Example - Dioxus" }
         Counter { }
     )
 }
-</code></pre></div><div data-hk=19.7 class=step id=options-comparison data-x=0 data-y=5000 data-rotate=0><h3 data-hk=19.0>Comparison</h3><ul data-hk=19.1><li data-hk=19.2>Yew is slower than React<li data-hk=19.3>Sycamore is faster<li data-hk=19.4>Dioxus is faster still<li data-hk=19.5>Speed isn't everything<li data-hk=19.6>Dioxus and Sycamore don't allow copy paste html, Yew does</ul></div><div data-hk=20.10 class=step id=conclusion data-x=0 data-y=6000 data-rotate=0><h2 data-hk=20.0>Wait, should I even do this</h2><ul data-hk=20.1><li data-hk=20.2>Probably not<li data-hk=20.3>Speed isn't everything<li data-hk=20.4>Speed differences are small<li data-hk=20.5>But it depends<ul data-hk=20.6><li data-hk=20.7>These speeds are for rendering<li data-hk=20.8>Speed differences are much greater for raw calculations</ul><li data-hk=20.9>Dioxus and Sycamore don't allow copy paste html, Yew does</ul></div></div><script data-hk=1.1 src=/.perseus/static/js/impress.js></script><script data-hk=1.2>window.impress || document.write(`&lt;script src='https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/js/impress.js'>&lt;/script>');</script><script data-hk=1.3>impress().init()</script></div><div id=__perseus_popup_error></div>
+</code></pre></div><div data-hk=28.7 class=step id=options-comparison data-x=0 data-y=5000 data-rotate=0><h3 data-hk=28.0>Comparison</h3><ul data-hk=28.1><li data-hk=28.2>Yew is slower than React<li data-hk=28.3>Sycamore is faster<li data-hk=28.4>Dioxus is faster still<li data-hk=28.5>Speed isn't everything<li data-hk=28.6>Dioxus and Sycamore don't allow copy paste html, Yew does</ul></div><div data-hk=29.10 class=step id=conclusion data-x=0 data-y=6000 data-rotate=0><h2 data-hk=29.0>Wait, should I even do this</h2><ul data-hk=29.1><li data-hk=29.2>Probably not<li data-hk=29.3>Speed isn't everything<li data-hk=29.4>Speed differences are small<li data-hk=29.5>But it depends<ul data-hk=29.6><li data-hk=29.7>These speeds are for rendering<li data-hk=29.8>Speed differences are much greater for raw calculations</ul><li data-hk=29.9>Dioxus and Sycamore don't allow copy paste html, Yew does</ul></div></div><script data-hk=1.1 src=/.perseus/static/js/impress.js></script><script data-hk=1.2>window.impress || document.write(`&lt;script src='https://cdn.jsdelivr.net/gh/impress/impress.js@2.0.0/js/impress.js'>&lt;/script>');</script><script data-hk=1.3>impress().init()</script></div><div id=__perseus_popup_error></div>
