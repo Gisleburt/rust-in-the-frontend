@@ -61,6 +61,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
 
             Step (name = "why-rust-correctness", x = 5 * col_mul) {
                 h3 { "Rust is robust, reliable and 'correct'" }
+                p {"Typescript:"}
                 Code(language = "typescript") {
                     "async function getUser(email: string): Promise<Result<Error, User>> { \n"
                     "  const response = await fetch(`https://example.com/${email}`);\n"
@@ -70,9 +71,11 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                     "    : Result.error(new Error('Incorrect user returned');\n"
                     "}\n"
                 }
+                p {"Rust:"}
                 Code(language = "rust") {
                     "async fn getUser(email: &str) -> Result<User, GetUserError> {\n"
-                    "    let user: User = get(format!(\"https://example.com/{email}\")).await?.json().await?;\n"
+                    "    let user: User = get(format!(\"https://example.com/{email}\")).await?\n"
+                    "        .json().await?;\n"
                     "    if user.email == email {\n"
                     "        Ok(user)\n"
                     "    } else {\n"
@@ -167,9 +170,9 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                     "fn Counter<G: Html>(cx: Scope, state: &CounterStateRx) -> View<G> {\n"
                     "    view! { cx,\n"
                     "        div {\n"
-                    "          p { (state.total.get()) }\n"
-                    "          button( on:click = move |_| {state.total.set(*state.total.get() + 1)}) { \"+1\" }\n"
-                    "          button( on:click = move |_| {state.total.set(*state.total.get() - 1)}) { \"-1\" }\n"
+                    "            p { (state.total.get()) }\n"
+                    "            button( on:click = move |_| {state.total.set(*state.total.get() + 1)}) { \"+1\" }\n"
+                    "            button( on:click = move |_| {state.total.set(*state.total.get() - 1)}) { \"-1\" }\n"
                     "        }\n"
                     "    }\n"
                     "}\n"
