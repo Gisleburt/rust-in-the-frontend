@@ -69,7 +69,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 Code(language = "typescript") {
                     "async function getUser(email: string): Promise<Result<Error, User>> { \n"
                     "  const response = await fetch(`https://example.com/${email}`);\n"
-                    "  const user = await response.json()\n"
+                    "  const user = await response.json();\n"
                     "  return user.email === email\n"
                     "    ? Result.ok(user)\n"
                     "    : Result.error(new Error('Incorrect user returned');\n"
@@ -218,7 +218,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
                 ul {
                     li { "Similar 'reactivity' approach to Sycamore" }
-                    li { "Looks a lot like Sycamore too'" }
+                    li { "Looks a lot like Sycamore too" }
                     li { "Supports CSR, SSR, SSG, Desktop, and more!" }
                 }
             }
@@ -265,102 +265,110 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                     }
                     tbody {
                         tr {
-                            th {"create rows" br { } "creating 1,000 rows (5 warmup runs)."}
-                            td { span (class="mean") {"39.7"} br {} span (class="deviation") {"0.5"} span (class="factor") {"(1.08)"}}
-                            td { span (class="mean") {"45.2"} br {} span (class="deviation") {"0.4"} span (class="factor") {"(1.23)"}}
-                            td { span (class="mean") {"45.6"} br {} span (class="deviation") {"0.4"} span (class="factor") {"(1.24)"}}
-                            td { span (class="mean") {"69.4"} br {} span (class="deviation") {"0.5"} span (class="factor") {"(1.88)"}}
+                            th {"create rows"}
+                            td (class="first") {"39.7ms"}
+                            td (class="second") {"45.2ms"}
+                            td (class="third") {"45.6ms"}
+                            td (class="last") {"69.4ms"}
                         }
                         tr {
-                            th {"replace all rows" br { } "updating all 1,000 rows (5 warmup runs)."}
-                            td { span (class="mean") {"43.1"} br {} span (class="deviation") {"0.3"} span (class="factor") {"(1.11)"}}
-                            td { span (class="mean") {"49.8"} br {} span (class="deviation") {"0.3"} span (class="factor") {"(1.28)"}}
-                            td { span (class="mean") {"48.4"} br {} span (class="deviation") {"0.7"} span (class="factor") {"(1.24)"}}
-                            td { span (class="mean") {"73.3"} br {} span (class="deviation") {"0.4"} span (class="factor") {"(1.88)"}}
+                            th {"replace all rows"}
+                            td (class="first") {"43.1ms"}
+                            td (class="third") {"49.8ms"}
+                            td (class="second") {"48.4ms"}
+                            td (class="last") {"73.3ms"}
                         }
                         tr () {
-                            th {"partial update" br { } "updating every 10th row for 1,000 rows (3 warmup runs). 16 x CPU slowdown."}
-                            td {span (class="mean") {"83.6"} br {} span (class="deviation") {"3.1"} span (class="factor") {"(1.06)"}}
-                            td {span (class="mean") {"90.5"} br {} span (class="deviation") {"3.3"} span (class="factor") {"(1.15)"}}
-                            td {span (class="mean") {"103.2"} br {} span (class="deviation") {"3.0"} span (class="factor") {"(1.31)"}}
-                            td {span (class="mean") {"100.0"} br {} span (class="deviation") {"2.5"} span (class="factor") {"(1.27)"}}
+                            th {"partial update"}
+                            td (class="first") {"83.6ms"}
+                            td (class="second") {"90.5ms"}
+                            td (class="last") {"103.2ms"}
+                            td (class="third") {"100.0ms"}
                         }
                         tr () {
-                            th {"select row" br { } "highlighting a selected row. (5 warmup runs). 16 x CPU slowdown."}
-                            td {span (class="mean") {"13.4"} br {} span (class="deviation") {"0.8"} span (class="factor") {"(1.46)"}}
-                            td {span (class="mean") {"17.7"} br {} span (class="deviation") {"1.2"} span (class="factor") {"(1.93)"}}
-                            td {span (class="mean") {"24.1"} br {} span (class="deviation") {"1.1"} span (class="factor") {"(2.63)"}}
-                            td {span (class="mean") {"21.6"} br {} span (class="deviation") {"0.8"} span (class="factor") {"(2.36)"}}
+                            th {"select row"}
+                            td (class="first") {"13.4ms"}
+                            td (class="second") {"17.7ms"}
+                            td (class="last") {"24.1ms"}
+                            td (class="third") {"21.6ms"}
                         }
                         tr () {
-                            th {"swap rows" br { } "swap 2 rows for table with 1,000 rows. (5 warmup runs). 4 x CPU slowdown."}
-                            td {span (class="mean") {"26.8"} br {} span (class="deviation") {"0.7"} span (class="factor") {"(1.13)"}}
-                            td {span (class="mean") {"26.2"} br {} span (class="deviation") {"0.8"} span (class="factor") {"(1.11)"}}
-                            td {span (class="mean") {"160.7"} br {} span (class="deviation") {"1.3"} span (class="factor") {"(6.79)"}}
-                            td {span (class="mean") {"27.0"} br {} span (class="deviation") {"0.8"} span (class="factor") {"(1.14)"}}
+                            th {"swap rows"}
+                            td (class="second") {"26.8ms"}
+                            td (class="first") {"26.2ms"}
+                            td (class="last") {"160.7ms ⚠️"}
+                            td (class="third") {"27.0ms"}
                         }
                         tr () {
-                            th {"remove row" br { } "removing one row. (5 warmup runs). 4 x CPU slowdown."}
-                            td {span (class="mean") {"40.9"} br {} span (class="deviation") {"1.0"} span (class="factor") {"(1.10)"}}
-                            td {span (class="mean") {"41.3"} br {} span (class="deviation") {"0.9"} span (class="factor") {"(1.11)"}}
-                            td {span (class="mean") {"43.5"} br {} span (class="deviation") {"1.3"} span (class="factor") {"(1.17)"}}
-                            td {span (class="mean") {"42.1"} br {} span (class="deviation") {"1.1"} span (class="factor") {"(1.13)"}}
+                            th {"remove row"}
+                            td (class="first") {"40.9ms"}
+                            td (class="second") {"41.3ms"}
+                            td (class="last") {"43.5ms"}
+                            td (class="third") {"42.1ms"}
                         }
                         tr () {
-                            th {"create many rows" br { } "creating 10,000 rows. (5 warmup runs with 1k rows)."}
-                            td {span (class="mean") {"433.3"} br {} span (class="deviation") {"1.4"} span (class="factor") {"(1.09)"}}
-                            td {span (class="mean") {"569.3"} br {} span (class="deviation") {"2.4"} span (class="factor") {"(1.43)"}}
-                            td {span (class="mean") {"619.2"} br {} span (class="deviation") {"3.1"} span (class="factor") {"(1.56)"}}
-                            td {span (class="mean") {"2,386.9"} br {} span (class="deviation") {"10.3"} span (class="factor") {"(6.00)"}}
+                            th {"create many rows"}
+                            td (class="first") {"433.3ms"}
+                            td (class="second") {"569.3ms"}
+                            td (class="third") {"619.2ms"}
+                            td (class="last") {"2,386.9ms ⚠️"}
                         }
                         tr () {
-                            th {"append rows to large table" br { } "appending 1,000 to a table of 10,000 rows. 2 x CPU slowdown."}
-                            td {span (class="mean") {"91.8"}span (class="deviation") {"0.4"} span (class="factor") {"(1.09)"}}
-                            td {span (class="mean") {"100.5"}span (class="deviation") {"1.3"} span (class="factor") {"(1.20)"}}
-                            td {span (class="mean") {"99.5"}span (class="deviation") {"0.6"} span (class="factor") {"(1.19)"}}
-                            td {span (class="mean") {"153.8"}span (class="deviation") {"1.4"} span (class="factor") {"(1.83)"}}
+                            th {"append rows to large table"}
+                            td (class="first") {"91.8ms"}
+                            td (class="third") {"100.5ms"}
+                            td (class="second") {"99.5ms"}
+                            td (class="last") {"153.8ms"}
                         }
                         tr () {
-                            th {"clear rows" br { } "clearing a table with 1,000 rows. 8 x CPU slowdown. (5 warmup runs)."}
-                            td {span (class="mean") {"32.8"}span (class="deviation") {"1.2"} span (class="factor") {"(1.37)"}}
-                            td {span (class="mean") {"33.0"}span (class="deviation") {"0.5"} span (class="factor") {"(1.38)"}}
-                            td {span (class="mean") {"30.7"}span (class="deviation") {"0.5"} span (class="factor") {"(1.28)"}}
-                            td {span (class="mean") {"52.0"}span (class="deviation") {"0.5"} span (class="factor") {"(2.17)"}}
+                            th {"clear rows"}
+                            td (class="second") {"32.8ms"}
+                            td (class="third") {"33.0ms"}
+                            td (class="first") {"30.7ms"}
+                            td (class="last") {"52.0ms"}
                         }
                         tr () {
                             th {"geometric mean" br { } "of all factors in the table"}
-                            th {"1.16"}
-                            th {"1.29"}
-                            th {"1.67"}
-                            th {"1.90"}
+                            th (class="first") {"1.16"}
+                            th (class="second") {"1.29"}
+                            th (class="third") {"1.67"}
+                            th (class="last") {"1.90"}
                         }
                     }
                 }
-                
+
+                p { "Results from " a(href="https://krausest.github.io/js-framework-benchmark/current.html") { "js-framework-benchmark" } }
+            }
+
+            Step (name = "conclusion", y = 6 * row_mul, x =  0 * col_mul) {
+                h2 { "Conclusion" }
+                h3 { "Wait, should I even do this" }
+            }
+
+            Step (name = "conclusion-probably-not", y = 6 * row_mul, x = 1 * col_mul) {
+                h3 { "Probably not" }
                 ul {
-                    li { "Yew is slower than React" }
-                    li { "Sycamore is faster" }
-                    li { "Dioxus is faster still" }
                     li { "Speed isn't everything" }
-                    li { "Dioxus and Sycamore don't allow copy paste html, Yew does" }
+                    li { "Speed differences are small" }
+                    li { "Converting between HTML and these DSLs is painful" }
+                    li { "We all already know React" }
                 }
             }
 
-            Step (name = "conclusion", y = 6 * row_mul, x = 0) {
-                h2 { "Wait, should I even do this" }
+            Step (name = "conclusion-but-maybe", y = 6 * row_mul, x = 2 * col_mul) {
+                h3 { "But Maybe" }
                 ul {
-                    li { "Probably not" }
-                    li { "Speed isn't everything" }
-                    li { "Speed differences are small" }
-                    li {
-                        "But it depends"
-                        ul {
-                            li { "These speeds are for rendering" }
-                            li { "Speed differences are much greater for raw calculations" }
-                        }
-                    }
-                    li { "Dioxus and Sycamore don't allow copy paste html, Yew does" }
+                    li { "These speeds are for rendering" }
+                    li { "Speed differences are much greater for raw calculations" }
+                    li { "Isomorphism means these work great with Rust based servers" }
+                    li { "You get all that correctness goodness I mentioned earlier" }
                 }
+            }
+
+            Step (name = "conclusion-final", y = 6 * row_mul, x = 3 * col_mul) {
+                h2 { "Rust in the Frontend?" }
+                h3 { "Probably not" }
+                h3 { "...but maybe" }
             }
         }
     }

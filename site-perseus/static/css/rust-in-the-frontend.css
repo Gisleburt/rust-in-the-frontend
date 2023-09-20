@@ -81,7 +81,7 @@ pre {
     opacity: 1;
 }
 
-a:active, a:hover, a:focus, a:visited {
+a, a:active, a:hover, a:focus, a:visited {
     color: inherit;
     font-weight: normal;
 }
@@ -93,4 +93,35 @@ a:hover {
 .logo {
     padding: 1rem;
     max-width: 10rem;
+}
+
+th, td {
+    border: 1px solid #666;
+    padding: 0.2rem 0.5rem;
+    text-align: center;
+}
+
+thead {
+    font-weight: bold;
+}
+
+th:first-of-type {
+    text-align: left;
+}
+
+.first {
+    background-color: #006;
+    font-weight: bold;
+}
+
+.second {
+    background-color: #060;
+}
+
+.third {
+    background-color: #990;
+}
+
+.last {
+    background-color: #600;
 }
