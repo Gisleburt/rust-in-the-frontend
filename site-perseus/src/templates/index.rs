@@ -38,7 +38,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             Step (name = "why-speed-wasm", x = 3 * col_mul) {
                 h3 { "WASM is fast" }
                 p { "WASM is known to provide a secure, high performance runtime for the web" }
-                img (src="/.perseus/static/images/speed-wasm.png")
+                img (src="/.perseus/static/images/js-cpp-wasm.png")
             }
 
             Step (name = "why-rust-wasm", x = 4 * col_mul) {
@@ -93,7 +93,15 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 h2 { "What are my options" }
             }
 
-            Step (name = "options-yew", y = 2 * row_mul, x = 0 * col_mul) {
+            Step (name = "options-example-app", y = 2 * row_mul, x = 0 * col_mul) {
+                h2 { "Counter Example" }
+                img (
+                    src="/.perseus/static/images/counter-example.gif",
+                    alt="A web page with a counter that can be increased or decreased"
+                )
+            }
+
+            Step (name = "options-yew", y = 3 * row_mul, x = 0 * col_mul) {
                 header {
                     img (
                         class = "logo",
@@ -109,7 +117,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-yew-demo-counter", y = 2 * row_mul, x = 1 * col_mul) {
+            Step (name = "options-yew-demo-counter", y = 3 * row_mul, x = 1 * col_mul) {
                 h3 { "Yew Counter" }
                 Code(language = "rust") {
                     "#[function_component]\n"
@@ -135,7 +143,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-yew-demo-counter-usage", y = 2 * row_mul, x = 2 * col_mul) {
+            Step (name = "options-yew-demo-counter-usage", y = 3 * row_mul, x = 2 * col_mul) {
                 h3 { "Yew Counter Usage" }
                 Code (language = "rust") {
                     "#[function_component]\n"
@@ -150,7 +158,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-perseus", y = 3 * row_mul, x = 0 * col_mul) {
+            Step (name = "options-perseus", y = 4 * row_mul, x = 0 * col_mul) {
                 header {
                     img (
                         class = "logo",
@@ -166,7 +174,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-perseus-demo-counter", y = 3 * row_mul, x = 1 * col_mul) {
+            Step (name = "options-perseus-demo-counter", y = 4 * row_mul, x = 1 * col_mul) {
                 h3 { "Perseus Counter" }
                 Code (language = "rust") {
                     "#[component]\n"
@@ -183,7 +191,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-perseus-demo-state", y = 3 * row_mul, x = 2 * col_mul) {
+            Step (name = "options-perseus-demo-state", y = 4 * row_mul, x = 2 * col_mul) {
                 h3 { "Perseus State" }
                 Code (language = "rust") {
                     "#[derive(Default, Serialize, Deserialize, Clone, ReactiveState)]\n"
@@ -194,7 +202,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-perseus-demo-counter-usage", y = 3 * row_mul, x = 3 * col_mul) {
+            Step (name = "options-perseus-demo-counter-usage", y = 4 * row_mul, x = 3 * col_mul) {
                 h3 { "Perseus Counter Usage" }
                 Code (language = "rust") {
                     "#[auto_scope]\n"
@@ -207,7 +215,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-dioxus", y = 4 * row_mul, x = 0 * col_mul) {
+            Step (name = "options-dioxus", y = 5 * row_mul, x = 0 * col_mul) {
                 header {
                     img (
                         class = "logo",
@@ -223,7 +231,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-dioxus-demo-counter", y = 4 * row_mul, x = 1 * col_mul) {
+            Step (name = "options-dioxus-demo-counter", y = 5 * row_mul, x = 1 * col_mul) {
                 h3 { "Dioxus Counter" }
                 Code (language = "rust") {
                     "fn Counter(cx: Scope) -> Element {\n"
@@ -238,7 +246,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-dioxus-demo-counter-usage", y = 4 * row_mul, x = 2 * col_mul) {
+            Step (name = "options-dioxus-demo-counter-usage", y = 5 * row_mul, x = 2 * col_mul) {
                 h3 { "Dioxus Counter Usage" }
                 Code (language = "rust") {
                     "fn App(cx: Scope) -> Element {\n"
@@ -250,7 +258,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "options-comparison", y = 5 * row_mul, x = 0) {
+            Step (name = "options-comparison", y = 6 * row_mul, x = 0) {
                 h3 { "Comparison" }
                 
                 table {
@@ -340,22 +348,39 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 p { "Results from " a(href="https://krausest.github.io/js-framework-benchmark/current.html") { "js-framework-benchmark" } }
             }
 
-            Step (name = "conclusion", y = 6 * row_mul, x =  0 * col_mul) {
+            Step (name = "conclusion", y = 7 * row_mul, x =  0 * col_mul) {
                 h2 { "Conclusion" }
                 h3 { "Wait, should I even do this" }
             }
 
-            Step (name = "conclusion-probably-not", y = 6 * row_mul, x = 1 * col_mul) {
+            Step (name = "conclusion-probably-not", y = 7 * row_mul, x = 1 * col_mul) {
                 h3 { "Probably not" }
                 ul {
                     li { "Speed isn't everything" }
                     li { "Speed differences are small" }
                     li { "Converting between HTML and these DSLs is painful" }
                     li { "We all already know React" }
+                    li { "None of these frameworks are stable" }
                 }
             }
 
-            Step (name = "conclusion-but-maybe", y = 6 * row_mul, x = 2 * col_mul) {
+            Step (name = "conclusion-probably-not-meme", y = 7 * row_mul, x = 2 * col_mul) {
+                h3 { "Probably not" }
+                img(
+                    src = "/.perseus/static/images/kombucha-woman-no.png",
+                    alt = "Kombucha Woman No"
+                )
+            }
+
+            Step (name = "conclusion-but-maybe-meme", y = 7 * row_mul, x = 3 * col_mul, rotate = 180) {
+                h3 { "But Maybe" }
+                img(
+                    src = "/.perseus/static/images/kombucha-woman-yes.png",
+                    alt = "Kombucha Woman Yes"
+                )
+            }
+
+            Step (name = "conclusion-but-maybe", y = 7 * row_mul, x = 4 * col_mul, rotate = 180) {
                 h3 { "But Maybe" }
                 ul {
                     li { "These speeds are for rendering" }
@@ -365,8 +390,8 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 }
             }
 
-            Step (name = "conclusion-final", y = 6 * row_mul, x = 3 * col_mul) {
-                h2 { "Rust in the Frontend?" }
+            Step (name = "conclusion-final", y = 7 * row_mul, x = 5 * col_mul) {
+                h2 { "Rust in the Frontend in 2023?" }
                 h3 { "Probably not" }
                 h3 { "...but maybe" }
             }
