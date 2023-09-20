@@ -56,6 +56,10 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                         "Write once, run anywhere: "
                         a(href = "https://tauri.app/") {"https://tauri.app/"}
                     }
+                    li {
+                        "Official Rust WASM Working Group: "
+                        a(href = "https://www.rust-lang.org/governance/wgs/wasm") {"https://www.rust-lang.org/governance/wgs/wasm"}
+                    }
                 }
             }
 
@@ -248,6 +252,91 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
 
             Step (name = "options-comparison", y = 5 * row_mul, x = 0) {
                 h3 { "Comparison" }
+                
+                table {
+                    thead {
+                        tr {
+                            th { "Name" }
+                            th { "dioxus" br { } "v0.4.0" }
+                            th { "sycamore" br { } "v0.8.0" }
+                            th { "react" br { } "v18.2.0" }
+                            th { "yew" br { } "v0.20.0" }
+                        }
+                    }
+                    tbody {
+                        tr {
+                            th {"create rows" br { } "creating 1,000 rows (5 warmup runs)."}
+                            td { span (class="mean") {"39.7"} br {} span (class="deviation") {"0.5"} span (class="factor") {"(1.08)"}}
+                            td { span (class="mean") {"45.2"} br {} span (class="deviation") {"0.4"} span (class="factor") {"(1.23)"}}
+                            td { span (class="mean") {"45.6"} br {} span (class="deviation") {"0.4"} span (class="factor") {"(1.24)"}}
+                            td { span (class="mean") {"69.4"} br {} span (class="deviation") {"0.5"} span (class="factor") {"(1.88)"}}
+                        }
+                        tr {
+                            th {"replace all rows" br { } "updating all 1,000 rows (5 warmup runs)."}
+                            td { span (class="mean") {"43.1"} br {} span (class="deviation") {"0.3"} span (class="factor") {"(1.11)"}}
+                            td { span (class="mean") {"49.8"} br {} span (class="deviation") {"0.3"} span (class="factor") {"(1.28)"}}
+                            td { span (class="mean") {"48.4"} br {} span (class="deviation") {"0.7"} span (class="factor") {"(1.24)"}}
+                            td { span (class="mean") {"73.3"} br {} span (class="deviation") {"0.4"} span (class="factor") {"(1.88)"}}
+                        }
+                        tr () {
+                            th {"partial update" br { } "updating every 10th row for 1,000 rows (3 warmup runs). 16 x CPU slowdown."}
+                            td {span (class="mean") {"83.6"} br {} span (class="deviation") {"3.1"} span (class="factor") {"(1.06)"}}
+                            td {span (class="mean") {"90.5"} br {} span (class="deviation") {"3.3"} span (class="factor") {"(1.15)"}}
+                            td {span (class="mean") {"103.2"} br {} span (class="deviation") {"3.0"} span (class="factor") {"(1.31)"}}
+                            td {span (class="mean") {"100.0"} br {} span (class="deviation") {"2.5"} span (class="factor") {"(1.27)"}}
+                        }
+                        tr () {
+                            th {"select row" br { } "highlighting a selected row. (5 warmup runs). 16 x CPU slowdown."}
+                            td {span (class="mean") {"13.4"} br {} span (class="deviation") {"0.8"} span (class="factor") {"(1.46)"}}
+                            td {span (class="mean") {"17.7"} br {} span (class="deviation") {"1.2"} span (class="factor") {"(1.93)"}}
+                            td {span (class="mean") {"24.1"} br {} span (class="deviation") {"1.1"} span (class="factor") {"(2.63)"}}
+                            td {span (class="mean") {"21.6"} br {} span (class="deviation") {"0.8"} span (class="factor") {"(2.36)"}}
+                        }
+                        tr () {
+                            th {"swap rows" br { } "swap 2 rows for table with 1,000 rows. (5 warmup runs). 4 x CPU slowdown."}
+                            td {span (class="mean") {"26.8"} br {} span (class="deviation") {"0.7"} span (class="factor") {"(1.13)"}}
+                            td {span (class="mean") {"26.2"} br {} span (class="deviation") {"0.8"} span (class="factor") {"(1.11)"}}
+                            td {span (class="mean") {"160.7"} br {} span (class="deviation") {"1.3"} span (class="factor") {"(6.79)"}}
+                            td {span (class="mean") {"27.0"} br {} span (class="deviation") {"0.8"} span (class="factor") {"(1.14)"}}
+                        }
+                        tr () {
+                            th {"remove row" br { } "removing one row. (5 warmup runs). 4 x CPU slowdown."}
+                            td {span (class="mean") {"40.9"} br {} span (class="deviation") {"1.0"} span (class="factor") {"(1.10)"}}
+                            td {span (class="mean") {"41.3"} br {} span (class="deviation") {"0.9"} span (class="factor") {"(1.11)"}}
+                            td {span (class="mean") {"43.5"} br {} span (class="deviation") {"1.3"} span (class="factor") {"(1.17)"}}
+                            td {span (class="mean") {"42.1"} br {} span (class="deviation") {"1.1"} span (class="factor") {"(1.13)"}}
+                        }
+                        tr () {
+                            th {"create many rows" br { } "creating 10,000 rows. (5 warmup runs with 1k rows)."}
+                            td {span (class="mean") {"433.3"} br {} span (class="deviation") {"1.4"} span (class="factor") {"(1.09)"}}
+                            td {span (class="mean") {"569.3"} br {} span (class="deviation") {"2.4"} span (class="factor") {"(1.43)"}}
+                            td {span (class="mean") {"619.2"} br {} span (class="deviation") {"3.1"} span (class="factor") {"(1.56)"}}
+                            td {span (class="mean") {"2,386.9"} br {} span (class="deviation") {"10.3"} span (class="factor") {"(6.00)"}}
+                        }
+                        tr () {
+                            th {"append rows to large table" br { } "appending 1,000 to a table of 10,000 rows. 2 x CPU slowdown."}
+                            td {span (class="mean") {"91.8"}span (class="deviation") {"0.4"} span (class="factor") {"(1.09)"}}
+                            td {span (class="mean") {"100.5"}span (class="deviation") {"1.3"} span (class="factor") {"(1.20)"}}
+                            td {span (class="mean") {"99.5"}span (class="deviation") {"0.6"} span (class="factor") {"(1.19)"}}
+                            td {span (class="mean") {"153.8"}span (class="deviation") {"1.4"} span (class="factor") {"(1.83)"}}
+                        }
+                        tr () {
+                            th {"clear rows" br { } "clearing a table with 1,000 rows. 8 x CPU slowdown. (5 warmup runs)."}
+                            td {span (class="mean") {"32.8"}span (class="deviation") {"1.2"} span (class="factor") {"(1.37)"}}
+                            td {span (class="mean") {"33.0"}span (class="deviation") {"0.5"} span (class="factor") {"(1.38)"}}
+                            td {span (class="mean") {"30.7"}span (class="deviation") {"0.5"} span (class="factor") {"(1.28)"}}
+                            td {span (class="mean") {"52.0"}span (class="deviation") {"0.5"} span (class="factor") {"(2.17)"}}
+                        }
+                        tr () {
+                            th {"geometric mean" br { } "of all factors in the table"}
+                            th {"1.16"}
+                            th {"1.29"}
+                            th {"1.67"}
+                            th {"1.90"}
+                        }
+                    }
+                }
+                
                 ul {
                     li { "Yew is slower than React" }
                     li { "Sycamore is faster" }

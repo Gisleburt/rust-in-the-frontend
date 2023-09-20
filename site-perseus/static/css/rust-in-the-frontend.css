@@ -64,15 +64,21 @@ pre {
     background-color: dimgrey;
     font-size: 1.1rem;
     line-height: 1.5rem;
+    border-radius: 1rem;
 }
 
 #impress pre code {
-    padding: 2rem;
+    padding: 1rem 2rem;
     font-family: "Source Code Pro", monospace;
+    border-radius: 1rem;
+}
+
+.step {
+    opacity: .5;
 }
 
 .step.active {
-
+    opacity: 1;
 }
 
 a:active, a:hover, a:focus, a:visited {
