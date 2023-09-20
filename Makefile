@@ -17,13 +17,13 @@ serve.site.perseus: build.site.perseus install.server
 	static-web-server --port 8080 --root ./docs
 
 serve.demo.dioxus: build.demo.dioxus install.server
-	static-web-server --port 8080 --root ./demo-dioxus/dist
+	static-web-server --port 8081 --root ./demo-dioxus/dist
 
 serve.demo.perseus: build.demo.perseus install.server
-	static-web-server --port 8080 --root ./demo-perseus/pkg
+	static-web-server --port 8082 --root ./demo-perseus/pkg
 
 serve.demo.yew: build.demo.yew install.server
-	static-web-server --port 8080 --root ./demo-yew/dist
+	static-web-server --port 8083 --root ./demo-yew/dist
 
 install.perseus:
 	cargo install perseus-cli ripgrep
