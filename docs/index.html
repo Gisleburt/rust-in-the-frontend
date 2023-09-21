@@ -77,11 +77,14 @@ fn App() -> Html {
 </code></pre></div><div data-hk=17.7 class=step id=options-perseus data-x=0 data-y=4000 data-rotate=0><header data-hk=17.0><img data-hk=17.1 class=logo src=/.perseus/static/images/logo-sycamore.png alt="Sycamore Logo"><h3 data-hk=17.2>Perseus (Sycamore)</h3></header><ul data-hk=17.3><li data-hk=17.4>Perseus is to Sycamore what Next is to React<li data-hk=17.5>Does not use Virtual DOM, uses 'fine grain reactivity'<li data-hk=17.6>Supports CSR, SSR, and SSG</ul></div><div data-hk=18.1 class=step id=options-perseus-demo-counter data-x=1200 data-y=4000 data-rotate=0><h3 data-hk=18.0>Perseus Counter</h3><pre data-hk=19.0 class=theme-ally-dark><code data-hk=19.1 class=language-rust>#[component]
 #[auto_scope]
 fn Counter&LTG: Html>(cx: Scope, state: &CounterStateRx) -> View&LTG> {
+    let increment = move |_| { state.total.set(*state.total.get() + 1) };
+    let decrement = move |_| { state.total.set(*state.total.get() - 1) };
+
     view! { cx,
         div {
             p { (state.total.get()) }
-            button( on:click = move |_| {state.total.set(*state.total.get() + 1)}) { "+1" }
-            button( on:click = move |_| {state.total.set(*state.total.get() - 1)}) { "-1" }
+            button( on:click = increment}) { "+1" }
+            button( on:click = decrement) { "-1" }
         }
     }
 }

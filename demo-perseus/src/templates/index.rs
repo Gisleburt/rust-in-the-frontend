@@ -17,11 +17,14 @@ async fn get_build_state(_info: StateGeneratorInfo<()>) -> State {
 #[component]
 #[auto_scope]
 fn Counter<G: Html>(cx: Scope, state: &CounterStateRx) -> View<G> {
+    let increment = move |_| { state.total.set(*state.total.get() + 1) };
+    let decrement = move |_| { state.total.set(*state.total.get() - 1) };
+
     view! { cx,
         div {
           p { (state.total.get()) }
-          button( on:click = move |_| {state.total.set(*state.total.get() + 1)}) { "+1" }
-          button( on:click = move |_| {state.total.set(*state.total.get() - 1)}) { "-1" }
+          button( on:click = increment) { "+1" }
+          button( on:click = decrement) { "-1" }
         }
     }
 }
