@@ -10,7 +10,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             Step (name = "intro", x = 0 * col_mul) {
                 header {
                     img (
-                        src = "/.perseus/static/images/rustacean-flat-happy.png",
+                        src = ".perseus/static/images/rustacean-flat-happy.png",
                         alt = "Ferris the Crab looking happy"
                     )
                     h1 { "Rust in the Frontend" }
@@ -22,7 +22,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             Step (name = "why", x = 1 * col_mul) {
                 div( class = "center" ) {
                     img (
-                        src = "/.perseus/static/images/why-jackie-chan.png",
+                        src = ".perseus/static/images/why-jackie-chan.png",
                         alt = "Jackie Chan: Why would you do that?"
                     )
                     h2 ( style = "display: none" ) { "Why would I want to do that?" }
@@ -32,13 +32,13 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             Step (name = "why-speed-rust", x = 2 * col_mul) {
                 h3 { "Rust is fast" }
                 p { "Rust is a language known for its speed" }
-                img (src="/.perseus/static/images/speed-elapsed-seconds.png")
+                img (src=".perseus/static/images/speed-elapsed-seconds.png")
             }
 
             Step (name = "why-speed-wasm", x = 3 * col_mul) {
                 h3 { "WASM is fast" }
                 p { "WASM is known to provide a secure, high performance runtime for the web" }
-                img (src="/.perseus/static/images/js-cpp-wasm.png")
+                img (src=".perseus/static/images/js-cpp-wasm.png")
             }
 
             Step (name = "why-rust-wasm", x = 4 * col_mul) {
@@ -96,7 +96,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             Step (name = "options-example-app", y = 2 * row_mul, x = 0 * col_mul) {
                 h2 { "Counter Example" }
                 img (
-                    src="/.perseus/static/images/counter-example.gif",
+                    src=".perseus/static/images/counter-example.gif",
                     alt="A web page with a counter that can be increased or decreased"
                 )
             }
@@ -105,7 +105,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 header {
                     img (
                         class = "logo",
-                        src = "/.perseus/static/images/logo-yew.png",
+                        src = ".perseus/static/images/logo-yew.png",
                         alt = "Sycamore Logo"
                     )
                     h3 { "Yew" }
@@ -162,7 +162,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 header {
                     img (
                         class = "logo",
-                        src = "/.perseus/static/images/logo-sycamore.png",
+                        src = ".perseus/static/images/logo-sycamore.png",
                         alt = "Sycamore Logo"
                     )
                     h3 {"Perseus (Sycamore)" }
@@ -222,7 +222,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
                 header {
                     img (
                         class = "logo",
-                        src = "/.perseus/static/images/logo-dioxus.png",
+                        src = ".perseus/static/images/logo-dioxus.png",
                         alt = "Sycamore Logo"
                     )
                     h3 { "Dioxus" }
@@ -370,7 +370,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             Step (name = "conclusion-probably-not-meme", y = 7 * row_mul, x = 2 * col_mul) {
                 h3 { "Probably not" }
                 img(
-                    src = "/.perseus/static/images/kombucha-woman-no.png",
+                    src = ".perseus/static/images/kombucha-woman-no.png",
                     alt = "Kombucha Woman No"
                 )
             }
@@ -378,7 +378,7 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
             Step (name = "conclusion-but-maybe-meme", y = 7 * row_mul, x = 3 * col_mul, rotate = 180) {
                 h3 { "But Maybe" }
                 img(
-                    src = "/.perseus/static/images/kombucha-woman-yes.png",
+                    src = ".perseus/static/images/kombucha-woman-yes.png",
                     alt = "Kombucha Woman Yes"
                 )
             }
@@ -406,16 +406,16 @@ fn index_page<G: Html>(cx: Scope) -> View<G> {
 fn head(cx: Scope) -> View<SsrNode> {
     view! { cx,
         title { "Rust in the FrontEnd" }
-        link (rel = "stylesheet", href = "/.perseus/static/css/meyerweb.css")
-        link (rel = "stylesheet", href = "/.perseus/static/css/impress-common.css")
-        link (rel = "stylesheet", href = "/.perseus/static/css/rust-in-the-frontend.css")
-        link (rel = "stylesheet", href = "/.perseus/static/css/rust-in-the-frontend.css")
+        link (rel = "stylesheet", href = ".perseus/static/css/meyerweb.css")
+        link (rel = "stylesheet", href = ".perseus/static/css/impress-common.css")
+        link (rel = "stylesheet", href = ".perseus/static/css/rust-in-the-frontend.css")
+        link (rel = "stylesheet", href = ".perseus/static/css/rust-in-the-frontend.css")
         link (rel = "stylesheet", href = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/a11y-dark.min.css")
-        link (rel = "apple-touch-icon",sizes = "180x180",href = "/.perseus/static/apple-touch-icon.png")
-        link (rel = "icon",type = "image/png",sizes = "32x32",href = "/.perseus/static/favicon-32x32.png")
-        link (rel = "icon",type = "image/png",sizes = "16x16",href = "/.perseus/static/favicon-16x16.png")
-        link (rel = "manifest",href = "/.perseus/static/site.webmanifest")
-        link (rel = "mask-icon",href = "/.perseus/static/safari-pinned-tab.svg",color = "#5bbad5")
+        link (rel = "apple-touch-icon",sizes = "180x180",href = ".perseus/static/apple-touch-icon.png")
+        link (rel = "icon",type = "image/png",sizes = "32x32",href = ".perseus/static/favicon-32x32.png")
+        link (rel = "icon",type = "image/png",sizes = "16x16",href = ".perseus/static/favicon-16x16.png")
+        link (rel = "manifest",href = ".perseus/static/site.webmanifest")
+        link (rel = "mask-icon",href = ".perseus/static/safari-pinned-tab.svg",color = "#5bbad5")
         meta (name = "msapplication-TileColor",content = "#da532c")
         meta (name = "theme-color",content = "#ffffff")
         script (src = "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js")
