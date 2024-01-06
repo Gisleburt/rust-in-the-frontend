@@ -1,5 +1,6 @@
 build.site.perseus: install.perseus
 	(cd site-perseus && perseus deploy -eo ../docs)
+	rg --passthru 'base href="/"' -r 'base href="."' ./docs/index.html > ./docs/index.tmp && mv ./docs/index.tmp ./docs/index.html
 	rg --passthru 'main\(\);' -r '//main();' ./docs/index.html > ./docs/index.tmp && mv ./docs/index.tmp ./docs/index.html
 	cp .nojekyll docs
 
